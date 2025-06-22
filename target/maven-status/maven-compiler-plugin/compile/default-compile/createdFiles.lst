@@ -1,0 +1,9 @@
+com\iitbombay\coursesbackend\model\Course.class
+com\iitbombay\coursesbackend\controller\CourseController.class
+com\iitbombay\coursesbackend\repository\CourseInstanceRepository.class
+com\iitbombay\coursesbackend\repository\CourseRepository.class
+com\iitbombay\coursesbackend\CoursesBackendApplication.class
+com\iitbombay\coursesbackend\service\CourseInstanceService.class
+com\iitbombay\coursesbackend\controller\CourseInstanceController.class
+com\iitbombay\coursesbackend\service\CourseService.class
+com\iitbombay\coursesbackend\model\CourseInstance.class
