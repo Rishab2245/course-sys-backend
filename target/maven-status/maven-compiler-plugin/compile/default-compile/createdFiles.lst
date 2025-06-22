@@ -6,4 +6,6 @@ com\iitbombay\coursesbackend\CoursesBackendApplication.class
 com\iitbombay\coursesbackend\service\CourseInstanceService.class
 com\iitbombay\coursesbackend\controller\CourseInstanceController.class
 com\iitbombay\coursesbackend\service\CourseService.class
+com\iitbombay\coursesbackend\config\GlobalCorsConfig.class
+com\iitbombay\coursesbackend\config\SecurityConfig.class
 com\iitbombay\coursesbackend\model\CourseInstance.class
