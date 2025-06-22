@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_DB: coursesdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - courses-network
+
+  backend:
+    image: rishab2245/courses-backend:latest # Changed from build
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/coursesdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: password
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    networks:
+      - courses-network
+
+  frontend:
+    image: rishab2245/courses-frontend:latest # Changed from build
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - courses-network
+
+volumes:
+  postgres_data:
+
+networks:
+  courses-network:
+    driver: bridge
