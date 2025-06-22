@@ -32,15 +32,19 @@ public class SecurityConfig {
      */
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration cfg = new CorsConfiguration();
-        // allow your Vercel origin (and you could add more or patterns)
-        cfg.setAllowedOriginPatterns(List.of("https://course-sys.vercel.app"));
-        cfg.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
-        cfg.setAllowCredentials(true);
-        cfg.setMaxAge(3600L);
+    CorsConfiguration cfg = new CorsConfiguration();
+    cfg.setAllowedOriginPatterns(List.of(
+        "https://course-sys.vercel.app",
+        "http://localhost:3000"
+    ));    
+    cfg.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
+    cfg.setAllowCredentials(true);
+    cfg.setAllowedHeaders(List.of("*")); // Optional: allow all headers
+    cfg.setMaxAge(3600L);
 
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", cfg);
-        return source;
-    }
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/**", cfg);
+    return source;
+}
+
 }
